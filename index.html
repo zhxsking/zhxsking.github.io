@@ -1,5 +1,94 @@
 ---
 layout: default
-title: test title
 ---
-<p>Hello world!</p>
+
+<section class="page hero">
+  <p class="hero-eyebrow rise">A personal space on the web</p>
+  <h1 class="hero-name rise rise-d1">zhxsking</h1>
+  <div class="hero-rule rise rise-d1"></div>
+  <p class="hero-tagline rise rise-d2">热爱代码与文字，记录思考，保持克制。</p>
+</section>
+
+<section class="page writing">
+  <h2 class="section-title">Writing</h2>
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li class="post-row">
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+        <span class="post-title">{{ post.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty-note">尚未发布文章。</p>
+  {% endif %}
+</section>
+
+<style>
+  .hero { padding: 120px 32px 0; }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .hero-rule {
+    width: 56px;
+    height: 1px;
+    background: var(--ink);
+    margin: 36px 0;
+  }
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 32em;
+  }
+
+  .writing { padding: 104px 32px 0; }
+  .section-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+  .post-list { list-style: none; }
+  .post-row + .post-row { border-top: 1px solid var(--hairline); }
+  .post-link {
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    padding: 22px 4px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding-left 0.3s ease;
+  }
+  .post-link:hover { padding-left: 14px; }
+  .post-date {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--muted);
+    white-space: nowrap;
+    min-width: 6.5em;
+  }
+  .post-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+  }
+  .post-link:hover .post-title { color: var(--accent); }
+  .empty-note { color: var(--muted); font-size: 0.9rem; }
+</style>
