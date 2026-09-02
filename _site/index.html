@@ -1,10 +1,247 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>My Blog</title>
-    </head>
-    <body>
-        <p>Hello world!</p>
-    </body>
-    </html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zhxsking</title>
+  <meta name="description" content="zhxsking 的个人主页 —— 记录思考，保持克制。" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #8a8a8a;
+      --faint: #f4f2ee;
+      --hairline: #e5e2dc;
+      --accent: #b08d57;
+      --serif: "Playfair Display", "Songti SC", "Noto Serif SC", Georgia, serif;
+      --sans: "Inter", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: #fdfcfa;
+      font-weight: 300;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Nav ---------- */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(253, 252, 250, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .site-nav .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-brand:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.external::after { background: var(--accent); }
+    .nav-links a.external::before {
+      content: "↗";
+      font-size: 0.65rem;
+      margin-right: 4px;
+      color: var(--accent);
+    }
+
+    /* ---------- Layout ---------- */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    main { min-height: calc(100vh - 64px - 120px); }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      border-top: 1px solid var(--hairline);
+      margin-top: 96px;
+      padding: 36px 0;
+    }
+    .site-footer .page {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    /* ---------- Motion ---------- */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .rise { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .rise-d1 { animation-delay: 0.12s; }
+    .rise-d2 { animation-delay: 0.24s; }
+
+    @media (max-width: 600px) {
+      .site-nav .nav-inner { padding: 0 20px; }
+      .nav-links { gap: 20px; }
+      .page { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/">zhxsking</a>
+      <ul class="nav-links">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="https://zhxsking.github.io/agent_cron/trae/data/llm_paper_daily/" target="_blank" rel="noopener" class="external">Paper Daily</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="page hero">
+  <p class="hero-eyebrow rise">A personal space on the web</p>
+  <h1 class="hero-name rise rise-d1">zhxsking</h1>
+  <div class="hero-rule rise rise-d1"></div>
+  <p class="hero-tagline rise rise-d2">热爱代码与文字，记录思考，保持克制。</p>
+</section>
+
+<section class="page writing">
+  <h2 class="section-title">Writing</h2>
+  
+  <ul class="post-list">
+    
+    <li class="post-row">
+      <a class="post-link" href="/2018/07/21/The-First.html">
+        <span class="post-date">2018.07.21</span>
+        <span class="post-title">The First</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+</section>
+
+<style>
+  .hero { padding: 120px 32px 0; }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .hero-rule {
+    width: 56px;
+    height: 1px;
+    background: var(--ink);
+    margin: 36px 0;
+  }
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 32em;
+  }
+
+  .writing { padding: 104px 32px 0; }
+  .section-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+  .post-list { list-style: none; }
+  .post-row + .post-row { border-top: 1px solid var(--hairline); }
+  .post-link {
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    padding: 22px 4px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding-left 0.3s ease;
+  }
+  .post-link:hover { padding-left: 14px; }
+  .post-date {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--muted);
+    white-space: nowrap;
+    min-width: 6.5em;
+  }
+  .post-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+  }
+  .post-link:hover .post-title { color: var(--accent); }
+  .empty-note { color: var(--muted); font-size: 0.9rem; }
+</style>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="page">
+      <span>&copy; 2026 zhxsking</span>
+      <span>Less, but better.</span>
+    </div>
+  </footer>
+
+</body>
+</html>

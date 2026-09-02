@@ -1,2 +1,4 @@
 encoding: utf-8
-theme: jekyll-theme-slate
+markdown: kramdown
+title: zhxsking
+description: zhxsking 的个人主页 —— 记录思考，保持克制。
